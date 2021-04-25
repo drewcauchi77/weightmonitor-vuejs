@@ -27,6 +27,11 @@ Compiles and hot-reloads for development
 yarn serve
 ```
 
+To run the JSON Server (Fake API)
+```
+yarn backend
+```
+
 Compiles and minifies for production
 ```
 yarn build
