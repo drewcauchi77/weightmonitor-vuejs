@@ -28,8 +28,6 @@ export default {
     }
 }
 
-// API
-// Ordering array by date
 // form to api post
 
 </script>

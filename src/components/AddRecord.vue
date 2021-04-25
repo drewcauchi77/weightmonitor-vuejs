@@ -26,12 +26,36 @@ export default {
         return {
             date: '',
             weight: '',
-            height: ''
+            height: '',
+            bmi: ''
         }
     },
     methods: {
         onSubmit() {
-            console.log('test')
+            if(!this.weight || !this.height || !this.date){
+                alert('Please make sure to fill all the fields')
+                return
+            }
+
+            var dateArray = this.date.split('-')
+            var formattedDate = dateArray[2] + '/' + dateArray[1] + '/' + dateArray[0]
+
+            var bmi = this.weight / (Math.pow((this.height / 100), 2))
+            bmi = bmi.toFixed(2)
+
+            const newRecord = {
+                date: formattedDate,
+                weight: this.weight,
+                height: this.height,
+                bmi: bmi
+            }
+
+            this.$emit('add-record', newRecord)
+
+            this.date = ''
+            this.weight = ''
+            this.height = ''
+            this.bmi = ''
         }
     }
 }
@@ -58,5 +82,6 @@ input[type=submit]{
     color: white;
     text-transform: uppercase;
     border: none;
+    cursor: pointer;
 }
 </style>
